@@ -8,12 +8,12 @@ function TinderCards() {
         {
             name: 'Elon Musk',
             url: 'https://c.files.bbci.co.uk/5C64/production/_115525632_elonmusk.jpg',
-            description: 'Chato pra porra',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu mauris iaculis purus pulvinar commodo ac sit amet neque. Maecenas non varius massa.',
         },
         {
             name: 'Jeff Bezos',
             url: 'https://f.i.uol.com.br/fotografia/2019/08/01/15646804835d432123c19bd_1564680483_3x2_md.jpg',
-            description: 'Carequinha chato pra krl',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu mauris iaculis purus pulvinar commodo ac sit amet neque. Maecenas non varius massa.',
         }
     ]);
 

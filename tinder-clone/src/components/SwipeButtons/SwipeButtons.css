@@ -1,0 +1,24 @@
+.swipeButtons_container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 2vh;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.swipe_button {
+    margin: 0 50px;
+    border-radius: 100%;
+    box-shadow: 0 10px 53px rgba(0,0,0,.3);
+}
+
+.swipe_button_close {
+    color: #ec5e6f !important;
+}
+.swipe_button_superlike {
+    color: #62b4f9 !important;
+}
+.swipe_button_like {
+    color: #76e2b3 !important;
+}

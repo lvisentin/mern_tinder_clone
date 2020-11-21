@@ -26,9 +26,9 @@
 .card h3 {
     color: white;
     position: absolute;
-    bottom: 40px;
+    bottom: 25%;
     margin: 10px;
-    font-size: 22px;
+    font-size: 30px;
     left: 5px;
     font-family: 'Roboto';
 }
@@ -37,9 +37,15 @@
     color: white;
     position: absolute;
     bottom: 10px;
-    font-size: 16px;
+    font-size: 18px;
     margin: 10px;
     left: 5px;   
     font-family: 'Roboto';
     font-weight: 400;
+    max-height: 80%;
+    max-width: 55%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    
+
 }
