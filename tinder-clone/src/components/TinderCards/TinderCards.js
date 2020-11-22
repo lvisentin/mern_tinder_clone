@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './TinderCards.css';
 import TinderCard from 'react-tinder-card';
+import axios from '../../axios.js';
 
 function TinderCards() {
 
-    const [people, setPeople] = useState([
-        {
-            name: 'Elon Musk',
-            url: 'https://c.files.bbci.co.uk/5C64/production/_115525632_elonmusk.jpg',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu mauris iaculis purus pulvinar commodo ac sit amet neque. Maecenas non varius massa.',
-        },
-        {
-            name: 'Jeff Bezos',
-            url: 'https://f.i.uol.com.br/fotografia/2019/08/01/15646804835d432123c19bd_1564680483_3x2_md.jpg',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu mauris iaculis purus pulvinar commodo ac sit amet neque. Maecenas non varius massa.',
+    const [people, setPeople] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            const req = await axios.get('/tinder/cards');
+
+            setPeople(req.data);
         }
-    ]);
+        fetchData();
+    }, []);
 
     const swiped = (direction, nameToDelete) => {
         console.log(`removing: ${nameToDelete}`);
-        // setLastDirection(direction);
     }
 
-    const outOfFrame = (name) => {
-        console.log(`name: ${name} left the screen`);
+    const outOfFrame = (person) => {
+        removePerson(person);
     }
+    
+    const removePerson = (person) => {
+        const findedPerson = people.filter((user) => person === user)[0];
+        people.splice(people.indexOf(findedPerson), 1);
+    }
+
 
     return (
+        people ? 
         <div className="tinderCards">
             <div className="tinderCards_cardContainer">
                 {people.map((person) => (
@@ -35,7 +40,7 @@ function TinderCards() {
                         key={person.name}
                         preventSwipe={['up', 'down']}
                         onSwipe={(dir) => swiped(dir, person.name)}
-                        onCardLeftScreen={() => outOfFrame(person.name)}
+                        onCardLeftScreen={() => outOfFrame(person)}
                     >
                         <div
                             style={{ backgroundImage: `url(${person.url})`}}
@@ -47,7 +52,7 @@ function TinderCards() {
                     </TinderCard>
                 ))}
             </div>
-        </div>
+        </div> : 'test'
     )
 }
 
